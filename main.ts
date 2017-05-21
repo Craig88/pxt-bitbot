@@ -73,17 +73,20 @@ namespace bitbot {
     //% blockId="bitbot_motor" block="drive motor %motor|speed %speed"
     //% weight=100
     export function motor(motor: BBMotor, speed: number): void {
-        let forward = (speed >= 0);
+        //check direction
+		let forward = (speed >= 0);
 
+		//check bounds
         if (speed > 1023) {
             speed = 1023;
         } else if (speed < -1023) {
-            speed = 1023;
+            speed = -1023;
         }
 
+		//ensure speed is positive
         let realSpeed = speed;
         if (!forward) {
-            realSpeed = 1023 - realSpeed;
+            realSpeed *= -1
         }
 
         if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
