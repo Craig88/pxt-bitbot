@@ -1,3 +1,4 @@
+/* Testing changes / Craig Steele / */ 
 
 /**
   * Enumeration of motors.
@@ -90,9 +91,11 @@ namespace bitbot {
             realSpeed = realSpeed - 1023;
         }
 
-       // pins.analogWritePin(AnalogPin.P0, 0);
-       // pins.analogWritePin(AnalogPin.P1, 0);
-       // basic.pause(100)
+       pins.digitalWritePin(DigitalPin.P8,0);
+       pins.digitalWritePin(DigitalPin.P12,0);
+       pins.analogWritePin(AnalogPin.P0, 0);
+       pins.analogWritePin(AnalogPin.P1, 0);
+       basic.pause(100)
 
         if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
             pins.analogWritePin(AnalogPin.P0, realSpeed);
