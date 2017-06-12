@@ -86,12 +86,13 @@ namespace bitbot {
 		//ensure speed is positive
         let realSpeed = speed;
         if (!forward) {
-            realSpeed *= -1
+            realSpeed *= -1;
+            realSpeed = realSpeed - 1023;
         }
 
-        pins.analogWritePin(AnalogPin.P0, 0);
-        pins.analogWritePin(AnalogPin.P1, 0);
-        basic.pause(100)
+       // pins.analogWritePin(AnalogPin.P0, 0);
+       // pins.analogWritePin(AnalogPin.P1, 0);
+       // basic.pause(100)
 
         if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
             pins.analogWritePin(AnalogPin.P0, realSpeed);
