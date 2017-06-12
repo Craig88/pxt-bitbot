@@ -90,11 +90,17 @@ namespace bitbot {
         }
 
         if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
+            pins.analogWritePin(AnalogPin.P0, 0);
+            pins.digitalWritePin(DigitalPin.P8, forward ? 0 : 1);
+            basic.pause(100)
             pins.analogWritePin(AnalogPin.P0, realSpeed);
             pins.digitalWritePin(DigitalPin.P8, forward ? 0 : 1);
         }
 
         if ((motor == BBMotor.Right) || (motor == BBMotor.All)) {
+            pins.analogWritePin(AnalogPin.P1, 0);
+            pins.digitalWritePin(DigitalPin.P12, forward ? 0 : 1);
+            basic.pause(100)
             pins.analogWritePin(AnalogPin.P1, realSpeed);
             pins.digitalWritePin(DigitalPin.P12, forward ? 0 : 1);
         }
