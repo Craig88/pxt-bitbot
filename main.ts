@@ -91,18 +91,29 @@ namespace bitbot {
             realSpeed = realSpeed - 1023;
         }
 
-       pins.digitalWritePin(DigitalPin.P8,0);
-       pins.digitalWritePin(DigitalPin.P12,0);
-       pins.analogWritePin(AnalogPin.P0, 0);
-       pins.analogWritePin(AnalogPin.P1, 0);
-       basic.pause(200)
-
-        if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
+       
+        if ((motor == BBMotor.Left)) {
+            pins.analogWritePin(AnalogPin.P0, 0);
+            pins.digitalWritePin(DigitalPin.P8,0);
+            basic.pause(200)
             pins.analogWritePin(AnalogPin.P0, realSpeed);
             pins.digitalWritePin(DigitalPin.P8, forward ? 0 : 1);
         }
 
-        if ((motor == BBMotor.Right) || (motor == BBMotor.All)) {
+        if ((motor == BBMotor.Right)) {
+            pins.analogWritePin(AnalogPin.P1, 0);
+            pins.digitalWritePin(DigitalPin.P12,0);
+            basic.pause(200)
+            pins.analogWritePin(AnalogPin.P1, realSpeed);
+            pins.digitalWritePin(DigitalPin.P12, forward ? 0 : 1);
+        }
+
+        if ((motor == BBMotor.All)) {
+            pins.analogWritePin(AnalogPin.P0, 0);
+            pins.digitalWritePin(DigitalPin.P8,0);
+            pins.analogWritePin(AnalogPin.P1, 0);
+            pins.digitalWritePin(DigitalPin.P12,0);
+            basic.pause(200)
             pins.analogWritePin(AnalogPin.P1, realSpeed);
             pins.digitalWritePin(DigitalPin.P12, forward ? 0 : 1);
         }
