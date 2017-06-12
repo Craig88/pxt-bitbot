@@ -116,6 +116,8 @@ namespace bitbot {
             basic.pause(200)
             pins.analogWritePin(AnalogPin.P1, realSpeed);
             pins.digitalWritePin(DigitalPin.P12, forward ? 0 : 1);
+            pins.analogWritePin(AnalogPin.P0, realSpeed);
+            pins.digitalWritePin(DigitalPin.P8, forward ? 0 : 1);
         }
     }
 
