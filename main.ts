@@ -95,7 +95,7 @@ namespace bitbot {
        pins.digitalWritePin(DigitalPin.P12,0);
        pins.analogWritePin(AnalogPin.P0, 0);
        pins.analogWritePin(AnalogPin.P1, 0);
-       basic.pause(100)
+       basic.pause(200)
 
         if ((motor == BBMotor.Left) || (motor == BBMotor.All)) {
             pins.analogWritePin(AnalogPin.P0, realSpeed);
